@@ -42,8 +42,8 @@ public class Food {
         return isEaten;
     }
 
-    public void setEaten( boolean eatean){
-       this.isEaten = false;
+    public void setEaten( boolean eaten){
+       this.isEaten = eaten;
     }
 
 }
