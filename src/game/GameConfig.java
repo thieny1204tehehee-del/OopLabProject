@@ -6,6 +6,7 @@ public final class GameConfig {
 
     // Map
     public static final int TILE_SIZE   = 24;
+    public static final int FOOD_SIZE   = 4;
     public static final int MAP_COLS    = 10;
     public static final int MAP_ROWS    = 10;
 
