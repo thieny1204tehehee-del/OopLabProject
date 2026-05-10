@@ -1,5 +1,5 @@
 package game;
-enum GameState {
+public enum GameState {
     PLAYING,
     WIN,
     GAME_OVER

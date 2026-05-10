@@ -20,7 +20,7 @@ public class Game {
     private GameState state;
 
     private Game() {
-        this.state = GameState.PLAYING;
+        state = GameState.PLAYING;
         init();
     }
 
@@ -71,12 +71,12 @@ public class Game {
         }
         if (allFoodEaten) {
             state = GameState.WIN;
-            running = false;
+            return;
         }
 
         if (player.getLives() == 0) {
             state = GameState.GAME_OVER;
-            running = false;
+            return;
         }
     }
 

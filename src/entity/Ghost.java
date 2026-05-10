@@ -21,17 +21,19 @@ public class Ghost extends Entity {
         this.direction = Direction.values()[random.nextInt(Direction.values().length)];
     }
 
+    @Override
     public void update() {
         move();
     }
 
-    public void move() {
-        strategy.move(this);
-    }
-
+    @Override
     public void draw(Graphics g) {
         g.setColor(Color.MAGENTA);
         g.fillOval(x, y, size, size);
+    }
+
+    public void move() {
+        strategy.move(this);
     }
 
     public Direction getDirection() {
