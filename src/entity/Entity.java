@@ -5,11 +5,13 @@ public abstract class Entity {
     protected int x;
     protected int y;
     protected int speed;
+    protected int size;
 
-    public Entity( int x, int y, int speed ){
+    public Entity( int x, int y, int speed, int size ){
         this.x = x;
         this.y = y;
         this.speed = speed;
+        this.size = size;
     }
 
     public abstract void update();
@@ -37,4 +39,11 @@ public abstract class Entity {
         this.speed = speed;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize( int size){
+        this.size = size;
+    }
 }
