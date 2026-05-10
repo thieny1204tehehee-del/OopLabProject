@@ -7,21 +7,20 @@ import entity.Direction;
 import java.util.Random;
 
 public class RandomMovement implements MovementStrategy {
-        private Random random = new Random();
-        private Direction[] dir = Direction.values();
+    private Random random = new Random();
+    private Direction[] dir = Direction.values();
 
+    @Override
     public void move(Ghost ghost) {
-            int x = ghost.getX();
-            int y = ghost.getY();
             int speed = ghost.getSpeed();
             Map map = ghost.getMap();
             int tileSize = map.getTileSize();
             int size = ghost.getSize();
 
             
-            int nextX = x;
-            int nextY = y;
-    
+            int nextX = ghost.getX();
+            int nextY = ghost.getY();
+
             switch (ghost.getDirection()) {
                 case UP:
                     nextY -= speed;
@@ -38,9 +37,9 @@ public class RandomMovement implements MovementStrategy {
             }
 
             boolean hitWall = map.isWall(nextX/tileSize, nextY/tileSize) 
-                            || map.isWall(nextX + size - 1/tileSize, nextY/tileSize) 
-                            || map.isWall(nextX/tileSize, nextY + tileSize - 1/tileSize) 
-                            || map.isWall(nextX + tileSize - 1/tileSize, nextY + tileSize - 1/tileSize);
+                            || map.isWall((nextX + size - 1)/tileSize, nextY/tileSize) 
+                            || map.isWall(nextX/tileSize, (nextY + tileSize - 1)/tileSize) 
+                            || map.isWall((nextX + tileSize - 1)/tileSize, (nextY + tileSize - 1)/tileSize);
 
             if (hitWall == false) {
                 ghost.setPosition(nextX, nextY);
