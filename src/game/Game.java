@@ -9,6 +9,7 @@ import map.Map;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.Graphics;
+import java.awt.Font;
 
 
 public class Game {
@@ -82,12 +83,14 @@ public class Game {
 
     public void render(Graphics g) {
         if (state == GameState.GAME_OVER) {
-            g.drawString("GAME OVER", 0, 0);
+            g.setFont(new Font("Arial", Font.BOLD, 24));
+            g.drawString("GAME OVER", 45, 120);
             return;
         }
 
         if (state == GameState.WIN) {
-            g.drawString("YOU WON!", 0, 0);
+            g.setFont(new Font("Arial", Font.BOLD, 24));
+            g.drawString("YOU WON!", 50, 120);
             return;
         }
 

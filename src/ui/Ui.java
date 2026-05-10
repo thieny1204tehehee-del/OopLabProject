@@ -7,6 +7,7 @@ import entity.Player;
 
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -67,7 +68,8 @@ public class Ui extends JPanel implements Runnable, KeyListener {
 
         Player p = game.getPlayer();
         g.setColor(Color.WHITE);
-        g.drawString("Lives: " + p.getLives(), 10, height - 10);
+        g.setFont(new Font("Arial", Font.BOLD, 15));
+        g.drawString("Lives: " + p.getLives(), 10,15);
     }
 
     @Override
