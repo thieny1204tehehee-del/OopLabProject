@@ -2,6 +2,7 @@ package map;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Graphics;
 
 import entity.Entity;
 import game.GameConfig;
@@ -48,9 +49,68 @@ public class Map {
         }
     }
 
-    public void eatFood( Entity e){
+    public void eatFood( Entity e ){
+        for(Food food : foods) {
+            if( food.isEaten() == false &&
+                intersects(e.getX(), e.getY(), tileSize, tileSize,
+                        food.getX(), food.getY(), food.getSize(), food.getSize())) {
+                            
+                            food.setEaten( true );
+                        }
+                    }
+    }
+    
+    
+    public boolean intersects(int x1, int y1, int w1, int h1,
+                              int x2, int y2, int w2, int h2
 
+    ){
+        return x1 < x2 + w2 &&
+               x1 + w1 > x2 &&
+               y1 < y2 + h2 &&
+               y1 + h1 > y2;
     }
 
+    
+    public void draw( Graphics g ){
+        for (Wall w : walls)
+            w.draw(g);
+
+        for (Food f : foods)
+            f.draw(g);
+    }
+
+    public List<Wall> getWalls(){
+        return walls;
+    }
+
+    public List<Food> getFoods(){
+        return foods;
+    }
+
+    public int getTileSize(){
+        return tileSize;
+    }
+
+    public boolean isWall( int col, int row ){
+        if (row > 0|| row >= grid.length|| col <0 || col >= grid[0].length){
+            return true;// ngoai map = tuong
+        }
+        return grid[row][col]==1; // tuong = 1
+        
+    }
+
+    public int[] getRandomEmptyTile(){
+        while(true){
+            int row = (int)(Math.random()) * grid.length; // row = (0.1-0.9) x grid.lenght
+            int col = (int)(Math.random()) * grid[0].length;// col = (0.1-0.9) x grid[0].lenght
+            
+            if (grid[row][col]==0){
+                return new int[]{col,row};
+
+            }
+        
+        }
+    }
 
 }
