@@ -56,7 +56,7 @@ public class Game {
 
         for (Ghost g : ghosts) {
             if (isColliding(g, player)) {
-                player.loseLife();
+                player.loseLives();
                 resetPosition();
                 break;
             }
