@@ -10,12 +10,10 @@ import map.Map;
 public class Player extends Entity {
     private Direction direction;
     private int lives;
-    private int size;
     private Map map;
 
-    public Player(int x, int y, int size, Map map){
-        super(x, y, GameConfig.PLAYER_SPEED);
-        this.size = size;
+    public Player(int x, int y, int speed, int size, Map map){
+        super(x, y, speed, size);
         this.map = map;
         this.direction = Direction.UP;
         this.lives = GameConfig.DEFAULT_LIVES;
