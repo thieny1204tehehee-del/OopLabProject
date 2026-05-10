@@ -55,9 +55,9 @@ public class Map {
                 intersects(e.getX(), e.getY(), tileSize, tileSize,
                         food.getX(), food.getY(), food.getSize(), food.getSize())) {
                             
-                            food.setEaten( true );
-                        }
-                    }
+                food.setEaten( true );
+            }
+        }
     }
     
     
@@ -93,7 +93,7 @@ public class Map {
     }
 
     public boolean isWall( int col, int row ){
-        if (row > 0|| row >= grid.length|| col <0 || col >= grid[0].length){
+        if (row < 0|| row >= grid.length|| col <0 || col >= grid[0].length){
             return true;// ngoai map = tuong
         }
         return grid[row][col]==1; // tuong = 1
@@ -102,8 +102,8 @@ public class Map {
 
     public int[] getRandomEmptyTile(){
         while(true){
-            int row = (int)(Math.random()) * grid.length; // row = (0.1-0.9) x grid.lenght
-            int col = (int)(Math.random()) * grid[0].length;// col = (0.1-0.9) x grid[0].lenght
+            int row = (int)(Math.random() * grid.length); // row = (0.1-0.9) x grid.lenght
+            int col = (int)(Math.random() * grid[0].length);// col = (0.1-0.9) x grid[0].lenght
             
             if (grid[row][col]==0){
                 return new int[]{col,row};
