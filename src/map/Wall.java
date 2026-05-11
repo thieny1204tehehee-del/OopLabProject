@@ -15,7 +15,7 @@ public class Wall {
     }
 
     public void draw(Graphics g){
-        g.setColor(Color.PINK);
+        g.setColor(Color.MAGENTA);
         g.fillRect(x, y, size, size);
     }
 

@@ -19,7 +19,7 @@ public class Food {
 
     public void draw( Graphics g ){
         if (isEaten == false){
-            g.setColor(Color.ORANGE);
+            g.setColor(Color.WHITE);
             int foodSize = GameConfig.FOOD_SIZE;
             int offSet = size/2 - foodSize/2;
             g.fillOval(x + offSet, y + offSet, foodSize, foodSize);

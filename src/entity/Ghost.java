@@ -28,7 +28,7 @@ public class Ghost extends Entity {
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.MAGENTA);
+        g.setColor(Color.CYAN);
         g.fillOval(x, y, size, size);
     }
 
