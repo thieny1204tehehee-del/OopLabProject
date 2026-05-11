@@ -32,7 +32,7 @@ public class Ghost extends Entity {
         g.fillOval(x, y, size, size);
     }
 
-    public void move() {
+    private void move() {
         strategy.move(this);
     }
 
