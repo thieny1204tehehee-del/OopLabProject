@@ -27,6 +27,7 @@ public class GameFactory {
         return new Player(
             GameConfig.TILE_SIZE,
             GameConfig.TILE_SIZE,
+            GameConfig.PLAYER_SPEED,
             GameConfig.TILE_SIZE,
             map
         );
@@ -36,6 +37,6 @@ public class GameFactory {
         int[] pos = map.getRandomEmptyTile();
         int x = pos[0] * map.getTileSize();
         int y = pos[1] * map.getTileSize();
-        return new Ghost(x, y, GameConfig.GHOST_SIZE, new RandomMovement(), map);
+        return new Ghost(x, y, GameConfig.GHOST_SPEED, GameConfig.GHOST_SIZE, new RandomMovement(), map);
     }
 }
