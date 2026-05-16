@@ -7,7 +7,11 @@ import entity.Player;
 
 import java.awt.Graphics;
 import java.awt.Color;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.awt.Font;
+
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -23,13 +27,19 @@ public class Ui extends JPanel implements Runnable, KeyListener {
     private final int height = GameConfig.MAP_ROWS * tileSize;
 
     private Game game;
+    private BufferedImage background;
 
     public Ui() {
         this.setPreferredSize(new Dimension(width, height));
-        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.setFocusable(true);
         this.addKeyListener(this);
+
+        try {
+            background = ImageIO.read(getClass().getResource("/background_grass.jpg"));
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
 
         game = Game.getInstance();
     }
@@ -64,6 +74,7 @@ public class Ui extends JPanel implements Runnable, KeyListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(background, 0, 0, width,  height, null);
         game.render(g);
 
         Player p = game.getPlayer();
