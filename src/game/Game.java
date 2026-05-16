@@ -85,15 +85,19 @@ public class Game {
     public void render(Graphics g) {
         if (state == GameState.GAME_OVER) {
             g.setFont(new Font("Arial", Font.BOLD, 24));
-            g.setColor(Color.MAGENTA);
-            g.drawString("GAME OVER", 45, 120);
+            g.setColor(Color.BLACK);
+            int x = GameConfig.MAP_COLS * GameConfig.TILE_SIZE / 2 - 70;
+            int y = GameConfig.MAP_ROWS * GameConfig.TILE_SIZE / 2;
+            g.drawString("GAME OVER", x, y);
             return;
         }
 
         if (state == GameState.WIN) {
             g.setFont(new Font("Arial", Font.BOLD, 24));
-            g.setColor(Color.MAGENTA);
-            g.drawString("YOU WON!", 50, 120);
+            g.setColor(Color.BLACK);
+            int x = GameConfig.MAP_COLS * GameConfig.TILE_SIZE / 2 - 70;
+            int y = GameConfig.MAP_ROWS * GameConfig.TILE_SIZE / 2;
+            g.drawString("YOU WON!", x, y);
             return;
         }
 
