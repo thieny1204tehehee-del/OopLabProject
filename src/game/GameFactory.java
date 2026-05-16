@@ -28,7 +28,7 @@ public class GameFactory {
             GameConfig.TILE_SIZE,
             GameConfig.TILE_SIZE,
             GameConfig.PLAYER_SPEED,
-            GameConfig.TILE_SIZE,
+            GameConfig.PLAYER_SIZE,
             map
         );
     }
