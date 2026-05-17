@@ -79,8 +79,8 @@ public class Ui extends JPanel implements Runnable, KeyListener {
 
         Player p = game.getPlayer();
         g.setColor(Color.WHITE);
-        g.setFont(new Font("Arial", Font.BOLD, 15));
-        g.drawString("Lives: " + p.getLives(), 10,15);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Lives: " + p.getLives(), 10,25);
     }
 
     @Override

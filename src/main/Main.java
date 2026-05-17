@@ -8,7 +8,7 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("Pacman");
+        window.setTitle("action maze chase GAME");
 
         Ui panel = new Ui();
         window.add(panel);
