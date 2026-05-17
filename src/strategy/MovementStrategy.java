@@ -3,5 +3,5 @@ package strategy;
 import entity.Ghost;
 
 public interface MovementStrategy {
-    void move(Ghost ghost);
+    public void move(Ghost ghost);
 }
