@@ -38,7 +38,7 @@ public class Game {
         player = GameFactory.createPlayer(map);
         ghosts = new ArrayList<>();
         ghosts.add(GameFactory.createGhost(map));
-        running = true;
+        running = false;
     }
 
     public void start() {

@@ -27,7 +27,7 @@ public class Ghost extends Entity {
             leftImg = ImageIO.read(getClass().getResource("/ghost_left.png"));
             rightImg = ImageIO.read(getClass().getResource("/ghost_right.png"));
         } catch (IOException e) {
-            e.getStackTrace();
+            e.printStackTrace();
         }
     }
     

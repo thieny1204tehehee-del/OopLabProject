@@ -38,7 +38,7 @@ public class Ui extends JPanel implements Runnable, KeyListener {
         try {
             background = ImageIO.read(getClass().getResource("/background_grass.jpg"));
         } catch (IOException e) {
-            e.getStackTrace();
+            e.printStackTrace();
         }
 
         game = Game.getInstance();
