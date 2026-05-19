@@ -29,6 +29,7 @@ public class Player extends Entity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -60,9 +61,9 @@ public class Player extends Entity {
         }
        
     }
-        @Override
-        public void draw(Graphics g){
-            BufferedImage currentImage = null;
+    @Override
+    public void draw(Graphics g){
+        BufferedImage currentImage = null;
 
         switch (direction) {
             case UP:
@@ -77,28 +78,28 @@ public class Player extends Entity {
             case RIGHT:
                 currentImage = rightImg;
                 break;
-            }
-
-            g.drawImage(currentImage, x, y, size, size, null);
         }
 
-        public void setDirection(Direction direction){
-            this.direction = direction;
-        }
+        g.drawImage(currentImage, x, y, size, size, null);
+    }
 
-        public Direction getDirection(){
-            return direction;
-        }
+    public void setDirection(Direction direction){
+        this.direction = direction;
+    }
 
-        public int getLives(){
-            return lives;
-        }
+    public Direction getDirection(){
+        return direction;
+    }
 
-        public void loseLives(){
-            lives--;
-        }
+    public int getLives(){
+        return lives;
+    }
 
-        public void resetLives(){
-            lives = GameConfig.DEFAULT_LIVES;
-        }
+    public void loseLives(){
+        lives--;
+    }
+
+    public void resetLives(){
+        lives = GameConfig.DEFAULT_LIVES;
+    }
 }
