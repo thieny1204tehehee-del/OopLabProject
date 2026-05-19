@@ -31,6 +31,7 @@ public class Ui extends JPanel implements Runnable, KeyListener {
 
     public Ui() {
         this.setPreferredSize(new Dimension(width, height));
+        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.setFocusable(true);
         this.addKeyListener(this);
