@@ -1,7 +1,9 @@
 package entity;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 
 import game.GameConfig;
 import map.Map;
@@ -11,6 +13,7 @@ public class Player extends Entity {
     private Direction direction;
     private int lives;
     private Map map;
+    private BufferedImage upImg, downImg, leftImg, rightImg;
 
     public Player(int x, int y, int speed, int size, Map map){
         super(x, y, speed, size);
@@ -18,6 +21,14 @@ public class Player extends Entity {
         this.direction = Direction.UP;
         this.lives = GameConfig.DEFAULT_LIVES;
 
+        try {
+            upImg = ImageIO.read(getClass().getResource("/duck_up.png"));
+            downImg = ImageIO.read(getClass().getResource("/duck_down.png"));
+            leftImg = ImageIO.read(getClass().getResource("/duck_left.png"));
+            rightImg = ImageIO.read(getClass().getResource("/duck_right.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -51,8 +62,24 @@ public class Player extends Entity {
     }
         @Override
         public void draw(Graphics g){
-            g.setColor(Color.YELLOW);
-            g.fillOval( x, y, size, size );
+            BufferedImage currentImage = null;
+
+        switch (direction) {
+            case UP:
+                currentImage = upImg;
+                break;
+            case DOWN:
+                currentImage = downImg;
+                break;
+            case LEFT:
+                currentImage = leftImg;
+                break;
+            case RIGHT:
+                currentImage = rightImg;
+                break;
+            }
+
+            g.drawImage(currentImage, x, y, size, size, null);
         }
 
         public void setDirection(Direction direction){
